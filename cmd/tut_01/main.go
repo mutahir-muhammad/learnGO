@@ -33,6 +33,9 @@ func main() {
 	fmt.Println(intDivision(10, 2))
 	var resultDivide, resultModulo = multipleReturns(10, 3)
 	fmt.Println(resultDivide, resultModulo)
+	ifelseCondition(true)
+	showArray()
+	makeSlices()
 }
 
 func printMe() {
@@ -45,4 +48,40 @@ func intDivision(numerator int, denominator int) int {
 
 func multipleReturns(numerator int, denominator int) (int, int) {
 	return numerator / denominator, numerator % denominator
+}
+
+func ifelseCondition(someBool bool) {
+	if someBool {
+		fmt.Println("something is true")
+	} else {
+		fmt.Println("something is false")
+	}
+}
+
+func showArray() {
+	var myArray [5]uint8 = [5]uint8{1, 2, 3, 4, 5}
+	// shorthand can be like below or myArray2 := [...]uint8{7, 8, 9, 10, 11}
+	// where the fixed length is inferred based on the number of elements
+	myArray2 := [5]uint8{7, 8, 9, 10, 11}
+	fmt.Println(myArray)
+	fmt.Println("my second array is" + fmt.Sprint(myArray2))
+	fmt.Println(len(myArray))
+	fmt.Println(myArray[0])
+	fmt.Println((myArray[1:4]))
+}
+
+func makeSlices() {
+	mySlice := []int{1, 2, 3}
+	fmt.Println(mySlice)
+	mySlice = append(mySlice, 6)
+	fmt.Println(mySlice)
+	fmt.Printf("The length is %v and the capacity is %v", len(mySlice), cap(mySlice))
+	mySlice = append(mySlice, 7)
+	fmt.Printf("\n\nThe length is %v and the capacity is %v", len(mySlice), cap(mySlice))
+
+	// slice can be made using make function or var mySlice2 []int = []int{1, 2, 3}
+	var mySlice2 []int = make([]int, 5, 10)
+	fmt.Println(mySlice2)
+	fmt.Printf("The length is %v and the capacity is %v", len(mySlice2), cap(mySlice2))
+
 }
