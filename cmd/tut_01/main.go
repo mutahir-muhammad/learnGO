@@ -36,6 +36,7 @@ func main() {
 	ifelseCondition(true)
 	showArray()
 	makeSlices()
+	makeMaps()
 }
 
 func printMe() {
@@ -83,5 +84,31 @@ func makeSlices() {
 	var mySlice2 []int = make([]int, 5, 10)
 	fmt.Println(mySlice2)
 	fmt.Printf("The length is %v and the capacity is %v", len(mySlice2), cap(mySlice2))
+
+}
+
+func makeMaps() {
+	//make map using make function
+	// where map[string]int means that key is a string
+	// and the value is an int
+	var myMap map[string]int = make(map[string]int)
+	myMap["one"] = 1
+	myMap["two"] = 2
+	fmt.Printf("\nThe map is %v", myMap)
+	var myMap2 = map[string]int{"one": 1, "two": 2}
+	fmt.Printf("\n\nThe second map is %v, the length is %v", myMap2, len(myMap2))
+
+	// the map will always return something
+	fmt.Printf("\n\nuninitialized property in map %v", myMap2["three"])
+	var value, err = myMap2["four"]
+	if err {
+		fmt.Printf("the uninitailized property is %v", value)
+	} else {
+		fmt.Println("\nInvalid property")
+	}
+
+	// delete property by reference using key in key-value pair
+	delete(myMap, "one")
+	fmt.Printf("myMap is now %v: ", myMap)
 
 }
