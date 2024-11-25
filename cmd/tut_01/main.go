@@ -37,6 +37,8 @@ func main() {
 	showArray()
 	makeSlices()
 	makeMaps()
+	loopingInMaps()
+	loopsInGo()
 }
 
 func printMe() {
@@ -60,6 +62,7 @@ func ifelseCondition(someBool bool) {
 }
 
 func showArray() {
+	fmt.Println("Inside showArray function\n")
 	var myArray [5]uint8 = [5]uint8{1, 2, 3, 4, 5}
 	// shorthand can be like below or myArray2 := [...]uint8{7, 8, 9, 10, 11}
 	// where the fixed length is inferred based on the number of elements
@@ -72,6 +75,7 @@ func showArray() {
 }
 
 func makeSlices() {
+	fmt.Println("inside makeSlices function\n")
 	mySlice := []int{1, 2, 3}
 	fmt.Println(mySlice)
 	mySlice = append(mySlice, 6)
@@ -88,6 +92,7 @@ func makeSlices() {
 }
 
 func makeMaps() {
+	fmt.Println("Inside makeMaps function\n")
 	//make map using make function
 	// where map[string]int means that key is a string
 	// and the value is an int
@@ -110,5 +115,32 @@ func makeMaps() {
 	// delete property by reference using key in key-value pair
 	delete(myMap, "one")
 	fmt.Printf("myMap is now %v: ", myMap)
+
+}
+
+func loopsInGo() {
+	var array [5]uint8 = [5]uint8{1, 2, 3}
+	// normal loop with index and value
+	for i, v := range array {
+		fmt.Printf("\nIndex: %v, Value: %v", i, v)
+	}
+
+	// for is while
+	var i int = 0
+	for i < 10 {
+		fmt.Println(i)
+		i = i + 1
+	}
+}
+
+func loopingInMaps() {
+
+	fmt.Println("\ninside Loopin in Maps function")
+	var myMap map[int]int = map[int]int{1: 1, 2: 2}
+	fmt.Printf("\n\nThe map here is: %v", myMap)
+
+	for name := range myMap {
+		fmt.Printf("\nName in myMap %v", name)
+	}
 
 }
