@@ -9,6 +9,6 @@ type gasEngine struct {
 }
 
 func main() {
-	var myEngine gasEngine
+	var myEngine gasEngine = gasEngine{50, 70} // struct literal
 	fmt.Println(myEngine.milePerGallon, myEngine.gallons)
 }
