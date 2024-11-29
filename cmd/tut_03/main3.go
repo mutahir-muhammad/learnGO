@@ -3,15 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Print("Hello Owlrd!")
+	fmt.Print("Hello Owlrd!\n")
 	// make channel
 	var channel = make(chan int)
 	go process(channel)
 	// read from channel
-	var value = <-channel
-	fmt.Println(value)
+	for i := range channel {
+		fmt.Println(i)
+	}
+
 }
 
 func process(c chan int) {
-	c <- 1234
+	for i := 0; i < 5; i++ {
+		c <- i
+	}
+	close(c)
+
 }
