@@ -13,7 +13,6 @@ func main() {
 	}
 
 }
-
 func process(c chan int) {
 	for i := 0; i < 5; i++ {
 		c <- i
