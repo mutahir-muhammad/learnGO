@@ -14,9 +14,9 @@ func main() {
 
 }
 func process(c chan int) {
+	defer close(c)
 	for i := 0; i < 5; i++ {
 		c <- i
 	}
-	close(c)
 
 }
